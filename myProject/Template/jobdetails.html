@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block content %}
+{% for i in job %}
+<h1>Details of the job of {{i.title}} </h1> 
+<h3>title: {{i.title}} </h3>
+<b>number_of_openings: {{i.number_of_openings}} </b> <br>
+<b>category: {{i.category}} </b> <br>
+<b>job_description: {{i.job_description}} </b> <br>
+<b>skills: {{i.skills}} </b> <br>
+{% endfor %}
+{% endblock content %}

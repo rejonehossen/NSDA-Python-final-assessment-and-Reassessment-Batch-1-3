@@ -1,0 +1,31 @@
+<ul>
+    <li><a href="{% url 'dashboard' %}">Home</a></li>
+    <li><a href="{% url 'joblistforall' %}">Job List</a></li>
+
+    {% if user.usertype == 'job_recruiter' %}
+    <li><a href="{% url 'addjob' %}">Add Job</a></li>
+    <li><a href="{% url 'postedjob' %}">Posted Jobs</a></li>
+    <li><a href="{% url 'profile' %}">Profile</a></li>
+    <li style="float:right"><a class="active" href="{% url 'signout' %}">Log Out</a></li>
+
+    
+    {% elif user.usertype == 'job_seeker' %}
+    <li><a href="{% url 'appliedjob' %}">Applied Job</a></li>
+    <li><a href="{% url 'profile' %}">Profile</a></li>
+    <li style="float:right"><a class="active" href="{% url 'signout' %}">Log Out</a></li>
+
+
+
+    {% else %}
+    <li><a href="{% url 'signin' %}">Sign In</a></li>
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+
+    {% endif %}
+    
+    <li>
+      <form action="{% url 'searchpagetitle' %}" method="GET">
+        <input type="text" placeholder="Enter title for search....." name="query" id="">
+        <input type="submit" value="Search">
+      </form>
+    </li>
+  </ul>

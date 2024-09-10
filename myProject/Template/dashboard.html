@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% block content %}
+
+{% if user.usertype == 'job_recruiter' or user.usertype == 'job_seeker' %}
+<h1>Welcome {{user.display_name}} </h1>
+
+{% else %}
+<h1 style="color: chartreuse;">Welcome to our website.</h1>
+<h3 style="color: blueviolet;">If you want to enjoy our premium featurs</h3> 
+<h4 style="color: aquamarine;"> please <a href="{% url 'signup' %}">create an accoutn</a>.</h4>
+<h4 style="color: aquamarine;">If you have already an account please <a href="{% url 'signin' %}">Log In</a></h4>
+{% endif %}
+{% endblock content %}
